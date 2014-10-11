@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>values (WrapExcel::Range)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/wrap_excel/range.rb, line 16</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">values</span>(<span class="ruby-identifier">range</span> = <span class="ruby-keyword kw">nil</span>)
+<span class="ruby-comment cmt">#+#      result = self.map(&amp;:value).flatten</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">value</span>}.<span class="ruby-identifier">flatten</span>
+<span class="ruby-comment cmt">#+#      range ? result.each_with_index.select{ |row_or_column, i| range.include?(i) }.map{ |i| i[0] } : result</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">range</span> 
+        <span class="ruby-identifier">relevant_result</span> = []
+        <span class="ruby-identifier">result</span>.<span class="ruby-identifier">each_with_index</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">row_or_column</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">relevant_result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">row_or_column</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">range</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">i</span>) }
+        <span class="ruby-identifier">relevant_result</span> 
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">result</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

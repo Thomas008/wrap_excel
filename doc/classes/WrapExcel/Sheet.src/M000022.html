@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>[] (WrapExcel::Sheet)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/wrap_excel/sheet.rb, line 28</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span> <span class="ruby-identifier">y</span>, <span class="ruby-identifier">x</span>
+      <span class="ruby-identifier">yx</span> = <span class="ruby-node">&quot;#{y+1}_#{x+1}&quot;</span>
+      <span class="ruby-ivar">@cells</span> <span class="ruby-operator">||=</span> { }
+      <span class="ruby-ivar">@cells</span>[<span class="ruby-identifier">yx</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">WrapExcel</span><span class="ruby-operator">::</span><span class="ruby-constant">Cell</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@sheet</span>.<span class="ruby-constant">Cells</span>.<span class="ruby-constant">Item</span>(<span class="ruby-identifier">y</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>, <span class="ruby-identifier">x</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>))
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
